@@ -1,0 +1,5 @@
+//List of Map
+//sorting the list in reverse order based on the key -> (first-> sorting the list, then reversing it)
+
+List<Map.Entry<Long, Integer>> list = new ArrayList<>(frequencyMap.entrySet());
+list.sort(Map.Entry.comparingByKey(Collections.reverseOrder()));
