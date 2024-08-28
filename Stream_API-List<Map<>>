@@ -1,0 +1,19 @@
+Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int i=0; i<n; i++){
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        }
+        
+        List<Map.Entry<Integer, Integer>> list = 
+                      map.entrySet().stream().
+                      sorted((a,b) -> {
+                        int freqcompare = Integer.compare(b.getValue(), a.getValue());
+                      
+                        if(freqcompare == 0){
+                          return Integer.compare(a.getKey(), b.getKey());
+                        }
+                        
+                        return freqcompare;
+                      })
+                      .collect(Collectors.toList());
+    //Creating a list of Map, which is sorted based on the second value(descending) . If the second values are same then sorting based on the first value(acsending order).
