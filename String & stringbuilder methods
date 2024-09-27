@@ -1,0 +1,29 @@
+class Solution {
+    public String findReplaceString(String s, int[] indices, String[] sources, String[] targets) {
+        
+        StringBuilder sb = new StringBuilder(s);
+        int k = indices.length;
+
+        ArrayList<int[]> replacements = new ArrayList<>();
+        for(int i=0; i<k; i++){
+            replacements.add(new int[]{indices[i], i});
+        }
+
+        Collections.sort(replacements, (a,b) -> b[0]-a[0]);
+
+        for(int[] replacement : replacements){
+
+            int ind = replacement[0];
+            int i = replacement[1];
+
+            String source = sources[i];
+            String target = targets[i];
+
+            if(s.startsWith(source, ind)){               //boolean startsWith(String prefix, int offset)
+                sb.replace(ind, ind+source.length() , target); //StringBuilder replace(int start, int end, String str);
+            }
+        }
+
+        return sb.toString();
+    }
+}
