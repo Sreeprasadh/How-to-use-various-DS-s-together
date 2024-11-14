@@ -1,0 +1,4 @@
+To avoid using floating-point arithmetic, you can instead calculate the ceiling of the division using integer math. A common trick is to use the formula:
+
+
+        ceil(a/b)=(a+b−1)/b
