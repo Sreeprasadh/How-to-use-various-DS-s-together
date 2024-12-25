@@ -1,0 +1,29 @@
+private static int lowerBound(long[] a, long target){
+        int l=0, h = a.length;
+
+        while(l < h){
+            int mid = l+(h-l)/2;
+
+            if(a[mid] < target){
+                l = mid+1;
+            }else{
+                h = mid;
+            }
+        }
+        return l;
+    }
+
+    private static int upperBound(long[] a, long target){
+        int l=0, h= a.length;
+        
+        while(l < h){
+            int mid = l + (h-l)/2;
+
+            if(a[mid] <= target){
+                l = mid+1;
+            }else{
+                h = mid;
+            }
+        }
+        return l;
+    }
